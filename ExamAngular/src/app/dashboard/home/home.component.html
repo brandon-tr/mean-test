@@ -1,0 +1,18 @@
+<app-dashboard></app-dashboard>
+
+<button (click)="Play()">Play</button>
+
+Search: <input type="search" name="search">
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Percentage</th>
+  </tr>
+  <tr *ngFor="let user of userList">
+    <td>{{user.name}}</td>
+    <td>{{user.score}}</td>
+    <td>{{user.percentage}}</td>
+  </tr>
+</table>

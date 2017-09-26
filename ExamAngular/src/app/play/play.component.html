@@ -1,0 +1,23 @@
+Question:
+<form #myForm="ngForm" (submit)="CheckAnswers()">
+<div *ngFor="let question of questions, let i = index">
+    {{question.Question}}
+    <br>
+    <div *ngIf="i == 0">
+      <input  type="radio" name="{{i}}" value="{{question.CorrectAnswer}}" [(ngModel)]="questionClass.answer1" i="ngModel" required>{{question.CorrectAnswer}}
+      <input type="radio" name="{{i}}" value="{{question.FakeAnswer1}}" [(ngModel)]="questionClass.answer1"  i="ngModel" required >{{question.FakeAnswer1}}
+      <input type="radio" name="{{i}}" value="{{question.FakeAnswer2}}" [(ngModel)]="questionClass.answer1"   i="ngModel" required >{{question.FakeAnswer2}}
+  </div>
+  <div *ngIf="i == 1">
+      <input  type="radio" name="{{i}}" value="{{question.CorrectAnswer}}" [(ngModel)]="questionClass.answer2" i="ngModel" required>{{question.CorrectAnswer}}
+      <input type="radio" name="{{i}}" value="{{question.FakeAnswer1}}" [(ngModel)]="questionClass.answer2"  i="ngModel" required >{{question.FakeAnswer1}}
+      <input type="radio" name="{{i}}" value="{{question.FakeAnswer2}}" [(ngModel)]="questionClass.answer2"   i="ngModel" required >{{question.FakeAnswer2}}
+  </div>
+  <div *ngIf="i == 2">
+      <input  type="radio" name="{{i}}" value="{{question.CorrectAnswer}}" [(ngModel)]="questionClass.answer3" i="ngModel" required>{{question.CorrectAnswer}}
+      <input type="radio" name="{{i}}" value="{{question.FakeAnswer1}}" [(ngModel)]="questionClass.answer3"  i="ngModel" required >{{question.FakeAnswer1}}
+      <input type="radio" name="{{i}}" value="{{question.FakeAnswer2}}" [(ngModel)]="questionClass.answer3"   i="ngModel" required >{{question.FakeAnswer2}}
+  </div>
+</div>
+<input type="submit" value="Submit" [disabled]="myForm.invalid">
+</form> 

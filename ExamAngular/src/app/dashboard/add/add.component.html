@@ -1,0 +1,22 @@
+<app-dashboard></app-dashboard>
+<form (submit)="addQuestion()" #add="ngForm">
+  Question <textarea name="question_html" id="" cols="30" rows="10" required minlength="15" [(ngModel)]="question.Question" #question_html="ngModel"></textarea>
+  <div *ngIf="question_html.invalid && (question_html.dirty || question_html.touched)">
+    <p *ngIf="question_html.errors.required">Question is required</p>
+    <p *ngIf="question_html.errors.minlength">Minimum length is 15</p>
+  </div><br>
+  Correct Answer<input type="text" name="CorrectAnswer_html" required [(ngModel)]="question.CorrectAnswer" #CorrectAnswer_html="ngModel">
+  <div *ngIf="CorrectAnswer_html.invalid && (CorrectAnswer_html.dirty || CorrectAnswer_html.touched)">
+      <p *ngIf="CorrectAnswer_html.errors.required">Correct Answer is required</p>
+    </div><br>
+  Fake Answer 1<input type="text" name="FakeAnswer1_html" required [(ngModel)]="question.FakeAnswer1" #FakeAnswer1_html="ngModel">
+  <div *ngIf="FakeAnswer1_html.invalid && (FakeAnswer1_html.dirty || FakeAnswer1_html.touched)">
+      <p *ngIf="FakeAnswer1_html.errors.required">Fake Answer 1 is required</p>
+    </div><br>
+  Fake Answer 2<input type="text" name="FakeAnswer2_html" required [(ngModel)]="question.FakeAnswer2" #FakeAnswer2_html="ngModel">
+  <div *ngIf="FakeAnswer2_html.invalid && (FakeAnswer2_html.dirty || FakeAnswer2_html.touched)">
+      <p *ngIf="FakeAnswer2_html.errors.required">Fake Answer 2 is required</p>
+    </div><br>
+  <button>Cancel</button><br>
+  <input type="Submit" value="Submit" [disabled]="add.invalid">
+</form>
